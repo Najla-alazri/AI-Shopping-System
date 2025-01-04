@@ -4,11 +4,14 @@ def calculate_total(prices):
     """
     total = 0
     for price in prices:
-        total += price  
+        if price < 0:
+            print(f"Warning: Skipping invalid price {price}")  # Skip negative prices
+            continue
+        total += price
     return total
 
 if __name__ == "__main__":
-  
+    # Hardcoded list of item prices
     item_prices = [10, 20, -5, 15]
     total_price = calculate_total(item_prices)
     print(f"The total price is: {total_price}")
